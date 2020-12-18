@@ -11,7 +11,7 @@ module.exports = router => {
   router.get('/music', index);
 
   // localhost:4000/music/12345
-  router.get('/music/show/:_id', show);
+  router.get('/music/:id', show);
 
   // localhost:4000/music
   router.post('/music', create);
@@ -22,5 +22,3 @@ module.exports = router => {
   // localhost:4000/music/destroy
   router.post('/music/destroy', destroy);
 };
-
-

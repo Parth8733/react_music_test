@@ -15,9 +15,9 @@ const Music = () => {
 
   useEffect(() => {
     if (!globalStore.REACT_APP_ENDPOINT) return;
-    
     Axios.get(`${globalStore.REACT_APP_ENDPOINT}/music`)
     .then(({ data }) => {
+      //reterive data from db
       setMusic(data);
     })
     .catch(error => {
@@ -31,13 +31,13 @@ const Music = () => {
   return (
     <>
       <Header title="Music"/>
-
       <Container>
         {music && music.length > 0 ? (
           <Table striped bordered hover>
             <thead>
               <th>Title</th>
               <th>Author</th>
+              <th>Gender</th>
               <th>Actions</th>
             </thead>
 
@@ -55,7 +55,7 @@ const Music = () => {
                   <td>
                     {mus.genre}
                   </td>
-
+             
                   <td>
                     <Link to={`/edit/${mus._id}`}>
                       edit

@@ -12,8 +12,7 @@ exports.index = async (req, res, next) => {
 
 exports.show = async (req, res, next) => {
   try{
-    var query = { _id: req.params._id };
-    const music = await Music.find(query);
+    const music = await Music.findById(req.params.id);
     res.status(200).json(music);
 }catch(error){
     next(error)
